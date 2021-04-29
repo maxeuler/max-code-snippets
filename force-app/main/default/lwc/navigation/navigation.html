@@ -1,0 +1,103 @@
+<template>
+    <lightning-card title="Naviation">
+        <div class="slds-grid slds-gutters">
+
+            <div class="slds-col slds-align_absolute-center">
+
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Chatter"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToChatter}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Record Page"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToRecordPage}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Related List"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToRelatedList}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Web Page"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToWebPage}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-align_absolute-center">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Files"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToFilesHome}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Hotels"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToHotelList}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to NavItem Page"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToNavItem}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-col slds-align_absolute-center">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Create Account"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToNewAccount}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Create Contact with defaults"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToNewContactWithDefaults}>
+                        </lightning-button>
+                    </div>
+                    <div class="slds-col slds-m-vertical_medium">
+                        <lightning-button 
+                            label="Go to Accounts"
+                            class="slds-var-m-around_medium"
+                            variant="brand"
+                            onclick={navigateToList}>
+                        </lightning-button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </lightning-card>
+</template>
