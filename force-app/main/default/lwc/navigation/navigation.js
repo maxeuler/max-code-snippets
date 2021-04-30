@@ -51,6 +51,18 @@ export default class Navigation extends NavigationMixin(LightningElement) {
         });
     }
 
+    navigateToRelatedList() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordRelationshipPage',
+            attributes: {
+                recordId: '0017R00002R7aiXQAR',
+                objectApiName: 'Account',
+                relationshipApiName: 'Contacts',
+                actionName: 'view'
+            }
+        });
+    }
+
     navigateToList() {
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
@@ -60,6 +72,18 @@ export default class Navigation extends NavigationMixin(LightningElement) {
             },
             state: {
                 filterName: 'Recent'
+            }
+        });
+    }
+
+    navigateToRecordPage() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: '0017R00002R7aiXQAR',
+                objectApiName: 'Account',
+                actionName: 'edit'
+                // oder view möglich
             }
         });
     }
