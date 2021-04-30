@@ -1,0 +1,111 @@
+<template>
+    <lightning-card title="Build your custom modal">
+
+        <p class="slds-m-around_medium">
+            This LWC takes your custom inputs. When the button is pressed, a generic child component builds a modal with the input.
+        </p>
+        <p class="slds-m-around_medium">
+            <i>NOTE:</i> If you use the custom modal in your code, you can also pass functions for the buttons.
+        </p>
+
+        <div class="slds-p-around_medium lgc-bg">
+
+            <lightning-input 
+                type="toggle" 
+                label="Show Header" 
+                name="showHeader"
+                value={showHeader}
+                onchange={handleToggleChange}>
+            </lightning-input>
+
+            <lightning-input 
+                type="text" 
+                label="Title"
+                name="title"
+                value={title}
+                onchange={handleTextInputChange}>
+            </lightning-input>
+
+            <lightning-input 
+                type="text" 
+                label="Header Text" 
+                name="headerText"
+                value={headerText}
+                onchange={handleTextInputChange}>
+            </lightning-input>
+
+            <hr/>
+
+            <lightning-input-rich-text
+                label="Content"
+                name="body"
+                value={body}
+                onchange={handleTextInputChange}
+            ></lightning-input-rich-text>
+
+            <hr/>
+
+            <div class="slds-grid slds-gutters slds-grid_vertical-align-center">
+                <div class="slds-col slds-size_4-of-12 slds-align-middle">
+                    <lightning-input 
+                        type="toggle" 
+                        label="Show Button" 
+                        name="showButton"
+                        value={showButton}
+                        onchange={handleToggleChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_8-of-12">
+                    <lightning-input 
+                        type="text" 
+                        label="Button Title" 
+                        name="buttonTitle"
+                        value={buttonTitle}
+                        onchange={handleTextInputChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+            <div class="slds-grid slds-gutters slds-grid_vertical-align-center">
+                <div class="slds-col slds-size_4-of-12">
+                    <lightning-input 
+                        type="toggle" 
+                        label="Show Second Button" 
+                        name="showSecondButton"
+                        value={showSecondButton}
+                        onchange={handleToggleChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_8-of-12">
+                    <lightning-input 
+                        type="text" 
+                        label="Second Button Title" 
+                        name="secondButtonTitle"
+                        value={secondButtonTitle}
+                        onchange={handleTextInputChange}>
+                    </lightning-input>
+                </div>
+            </div>
+
+        </div>
+
+        <template if:true={showModal}>
+            <c-custom-modal 
+                onclose={handleClose}
+                title={title}
+                show-header={showHeader}
+                header-text={headerText}
+                body={body}
+                show-button={showButton}
+                button-title={buttonTitle}
+                show-second-button={showSecondButton}
+                second-button-title={secondButtonTitle}
+                onbuttonclicked={handleButtonClick}>
+            </c-custom-modal>
+        </template>
+        <lightning-button 
+            class="slds-m-top_medium slds-m-horizontal_medium"
+            onclick={handleShowModal} 
+            label="Show Modal"></lightning-button>
+    </lightning-card>
+</template>
