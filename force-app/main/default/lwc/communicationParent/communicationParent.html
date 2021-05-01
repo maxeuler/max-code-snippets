@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Communication">
+        <div class="slds-m-horizontal_medium">
+            <p>
+                This LWC has two child components. These components use the publish-subscriber model to communicate.
+            </p>
+            <p>
+                Child 2 uses the connectedCallback() to subscribe to an event called "ontextchange" and passes a callback. The callback is stored in the store of the pubsub class. Child 1 will publish an event with the same name after a click on the button. The publish method in pubsub will call the callback stored unter this name.
+            </p>
+            <p>
+                Components:
+            </p>
+            <ul class="slds-list_dotted slds-m-bottom_small">
+                <li>communicationParent</li>
+                <li>communicationChildOne</li>
+                <li>communicationChildTwo</li>
+                <li>communicationPubSub</li> 
+            </ul>
+        </div>
+        <c-communication-child-one></c-communication-child-one>
+        <c-communication-child-two></c-communication-child-two>
+    </lightning-card>
+</template>

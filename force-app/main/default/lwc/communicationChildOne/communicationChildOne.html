@@ -1,0 +1,13 @@
+<template>
+    <div class="slds-m-horizontal_small">
+        <div class="slds-box">
+            <div class="slds-m-horizontal_small">
+                <h2>Child 1</h2>
+                <lightning-input value={textValue} onchange={handleTextChange}></lightning-input>
+                <div class="slds-m-top_small">
+                    <lightning-button label="Send Text to sibling" onclick={handleButtonClick}></lightning-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
