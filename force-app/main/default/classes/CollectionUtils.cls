@@ -63,7 +63,7 @@ public inherited sharing class CollectionUtils {
         Type dynamicListType = Type.forName('List<' + objectType + '>');
         Type dynamicMapType = Type.forName('Map<Id, List<' + objectType + '>>');
 
-        Map<Id, List<SObject>> recordListsByKey = (Map<String, List<SObject>>) dynamicMapType.newInstance();
+        Map<Id, List<SObject>> recordListsByKey = (Map<Id, List<SObject>>) dynamicMapType.newInstance();
         for (SObject currentRecord : listToProcess) {
             if (currentRecord.get(key) != null) {
                 if (recordListsByKey.containsKey((Id) currentRecord.get(key))) {
