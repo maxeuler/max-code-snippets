@@ -1,6 +1,9 @@
 <template>
     <lightning-card title="Wire Account">
         <div class="slds-m-around_medium">
+            <template if:true={error}>
+                <p>{error}</p>
+            </template>
             <p>Account Name: {account.Name}</p>
             <p>Account Owner: {account.Owner}</p>
             <p>Account Website: {account.Website}</p>
