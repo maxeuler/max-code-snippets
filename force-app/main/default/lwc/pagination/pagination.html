@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Pagination" icon-name="custom:custom63">
+        <div class="slds-var-m-around_medium">
+            <p>
+                This Component has a list of names. On each page, exactly one name is shown.
+            </p>
+
+            <template if:true={currentRecords}>
+                <div class="slds-m-vertical_medium">
+                    <template for:each={currentRecords} for:item="record">
+                        <div class="slds-text-heading_medium slds-text-align_center" key={record}>{record}</div>
+                    </template>
+                </div>
+            </template>
+        </div>
+
+        <div slot="footer" class="slds-var-m-vertical_medium">
+            <c-pagination-controls 
+                records={sampleList} 
+                onpasscurrentrecords={handleNewPage}>
+            </c-pagination-controls>
+        </div>
+    </lightning-card>
+</template>

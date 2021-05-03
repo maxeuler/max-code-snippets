@@ -1,0 +1,36 @@
+<template>
+    <div class="slds-grid slds-grid_align-center">
+        <div class="slds-size_1-of-2">
+    
+            <lightning-layout>
+
+                <lightning-layout-item>
+                    <lightning-button 
+                        label="Previous" 
+                        icon-name="utility:chevronleft" 
+                        onclick={handlePreviousClick}
+                        disabled={isPreviousButtonDisables}>
+                    </lightning-button>
+                </lightning-layout-item>
+
+                <lightning-layout-item flexibility="grow">
+                    <p class="slds-text-align_center">
+                        Displaying {currentPage} of {pageCount} page
+                    </p>
+                </lightning-layout-item>
+
+                <lightning-layout-item>
+                    <lightning-button 
+                        label="Next" 
+                        icon-name="utility:chevronright" 
+                        icon-position="right"
+                        onclick={handleNextClick}
+                        disabled={isNextButtonDisables}>
+                    </lightning-button>
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+        </div>
+    </div>
+</template>
