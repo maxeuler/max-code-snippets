@@ -2,6 +2,12 @@ public virtual class TriggerHandler {
 
     protected TriggerContext context;
     private Boolean isTriggerExecuting;
+    
+    private static Set<String> bypassedHandlers;
+
+    static {
+        bypassedHandlers = new Set<String>();
+    }
 
     public class TriggerHandlerException extends Exception {
     
@@ -33,7 +39,16 @@ public virtual class TriggerHandler {
                 'Trigger handler called outside of Trigger execution'
             );
         }
+
+        if (TriggerHandler.bypassedHandlers.contains(this.getHandlerName())) {
+            return false;
+        }
+
         return true;
+    }
+
+    private String getHandlerName() {
+        return String.valueOf(this).substring(0, String.valueOf(this).indexOf(':'));
     }
 
     private void setTriggerContext() {
@@ -86,6 +101,18 @@ public virtual class TriggerHandler {
                 this.afterUndelete();
             }
         }
+    }
+
+    public static void bypass(String handlerName) {
+        TriggerHandler.bypassedHandlers.add(handlerName);
+    }
+ 
+    public static void clearBypass(String handlerName) {
+        TriggerHandler.bypassedHandlers.remove(handlerName);
+    }
+
+    public static Boolean isBypassed(String handlerName) {
+        return TriggerHandler.bypassedHandlers.contains(handlerName);
     }
 
     @SuppressWarnings('PMD.EmptyStatementBlock')
