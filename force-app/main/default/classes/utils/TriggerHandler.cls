@@ -1,6 +1,7 @@
 public virtual class TriggerHandler {
 
     protected TriggerContext context;
+    @testVisible 
     private Boolean isTriggerExecuting;
     
     private static Set<String> bypassedHandlers;
@@ -47,6 +48,7 @@ public virtual class TriggerHandler {
         return true;
     }
 
+    @testVisible
     private String getHandlerName() {
         return String.valueOf(this).substring(0, String.valueOf(this).indexOf(':'));
     }
@@ -73,6 +75,38 @@ public virtual class TriggerHandler {
             }
             when AFTER_UNDELETE {
                 this.context = TriggerContext.AFTER_UNDELETE;
+            }
+        }
+    }
+
+    @testVisible
+    private void setTriggerContextForTest(String ctx) {
+        switch on ctx {
+            when 'before insert' {
+                context = TriggerContext.BEFORE_INSERT;
+            }
+            when 'before update' {
+                context = TriggerContext.BEFORE_UPDATE;
+            }
+            when 'before delete' {
+                context = TriggerContext.BEFORE_DELETE;
+            }
+            when 'after insert' {
+                context = TriggerContext.AFTER_INSERT;
+            }
+            when 'after update' {
+                context = TriggerContext.AFTER_UPDATE;
+            }
+            when 'after delete' {
+                context = TriggerContext.AFTER_DELETE;
+            }
+            when 'after undelete' {
+                context = TriggerContext.AFTER_UNDELETE;
+            }
+            when else {
+                throw new TriggerHandler.TriggerHandlerException(
+                    'Unexpected trigger context set'
+                );
             }
         }
     }
